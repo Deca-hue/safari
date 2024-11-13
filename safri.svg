@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="327.61844mm"
+   height="293.77759mm"
+   viewBox="0 0 327.61843 293.77759"
+   version="1.1"
+   id="svg1"
+   inkscape:version="1.4 (86a8ad7, 2024-10-11)"
+   sodipodi:docname="safri.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     inkscape:zoom="0.49264169"
+     inkscape:cx="628.24565"
+     inkscape:cy="561.25984"
+     inkscape:window-width="1366"
+     inkscape:window-height="705"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs1">
+    <pattern
+       inkscape:collect="always"
+       xlink:href="#pattern2"
+       preserveAspectRatio="xMidYMid"
+       id="pattern4"
+       patternTransform="matrix(0.11603541,0,0,0.27952259,110.40268,-26.460418)" />
+    <pattern
+       patternUnits="userSpaceOnUse"
+       width="153.95894"
+       height="80.572491"
+       patternTransform="translate(354.85894,525.42862)"
+       preserveAspectRatio="xMidYMid"
+       id="pattern2"
+       inkscape:label="pattern2">
+      <text
+         xml:space="preserve"
+         style="font-size:137.366px;text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#333333;stroke:none;stroke-width:8.73411"
+         x="-7.3780456"
+         y="76.731674"
+         id="text1"><tspan
+           sodipodi:role="line"
+           id="tspan1"
+           style="fill:#333333;stroke:none;stroke-width:8.73407"
+           x="-7.3780456"
+           y="76.731674">s</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-size:133.73px;text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#008000;stroke:none;stroke-width:8.50295"
+         x="89.771027"
+         y="78.809448"
+         id="text2"><tspan
+           sodipodi:role="line"
+           id="tspan2"
+           style="fill:#008000;stroke:none;stroke-width:8.50292"
+           x="89.771027"
+           y="78.809448">s</tspan></text>
+    </pattern>
+  </defs>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(61.22604)">
+    <rect
+       style="fill:url(#pattern4);fill-opacity:1;stroke:none;stroke-width:0.831618"
+       width="209.83377"
+       height="174.78062"
+       x="68.465782"
+       y="-19.703506"
+       id="rect2"
+       transform="rotate(37.239733)"
+       ry="0" />
+  </g>
+</svg>

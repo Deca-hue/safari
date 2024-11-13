@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Safari - Account Dashboard</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="header">
+    <div class="logo">Safari</div>
+    <nav class="nav">
+      <a href="index.html">Home</a>
+      <a href="#services">Services</a>
+      <a href="#account">My Account</a>
+      <a href="#support">Support</a>
+    </nav>
+  </header>
+
+  <section class="dashboard">
+    <h2>Welcome, [Username]</h2>
+    <div class="dashboard-card">
+      <h3>Your Balance</h3>
+      <p>$50.00</p> <!-- Placeholder balance -->
+    </div>
+
+    <div class="dashboard-card">
+      <h3>Manage Packages</h3>
+      <p>View and adjust your mobile and internet packages.</p>
+      <button class="button">Manage Packages</button>
+    </div>
+
+    <div class="dashboard-card">
+      <h3>Make a Payment</h3>
+      <p>Pay your balance or top-up your account.</p>
+      <button class="button">Make a Payment</button>
+    </div>
+  </section>
+   <!-- New Withdraw Section
+   <div class="dashboard-card">
+    <h3>Withdraw Funds</h3>
+    <p>Withdraw available funds or transfer money to your linked account.</p>
+    <button class="button">Withdraw Funds</button>
+  </div> -->
+</section>
+  <footer class="footer">
+    <p>&copy; 2024 Safari</p>
+  </footer>
+  // dashboard.html
+<script>
+  // Get the logged-in user from localStorage
+  const loggedInUser = JSON.parse(localStorage.getItem('loggedInUser'));
+
+  if (!loggedInUser) {
+    // If no user is logged in, redirect to the login page
+    window.location.href = "index.html"; // Redirect to the login page
+  } else {
+    // Display the logged-in user's information on the dashboard
+    document.getElementById("dashboard-username").textContent = `Hello, ${loggedInUser.username}!`;
+  }
+
+  // Logout function
+  function logout() {
+    localStorage.removeItem('loggedInUser'); // Clear the logged-in user from localStorage
+    window.location.href = "index.html"; // Redirect to the login page
+  }
+</script>
+
+</body>
+</html>

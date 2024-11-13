@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Safari - Login or Register</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="header">
+    <div class="logo">Safari</div>
+    <nav class="nav">
+      <a href="index.html">Home</a>
+      <a href="#services">Services</a>
+      <a href="#account">My Account</a>
+      <a href="#support">Support</a>
+    </nav>
+  </header>
+
+  <section class="auth">
+    <h2 id="form-title">Register</h2>
+
+  <!-- Button to show the login form -->
+<button id="show-login-btn" onclick="toggleLoginForm()">Login</button>
+
+<!-- Login Form -->
+<form id="login-form" style="display: none;">
+  <label for="login-username">Username:</label>
+  <input type="text" id="login-username" required>
+
+  <label for="login-password">Password:</label>
+  <input type="password" id="login-password" required>
+
+  <button type="button" onclick="loginUser()">Login</button>
+
+  <!-- Link to switch to Register Form -->
+  <p id="register-link">
+    Don't have an account? <a href="javascript:void(0);" onclick="toggleForm('register')">Register here</a>
+  </p>
+  <p id="login-error" style="color: red; display: none;">Incorrect username or password.</p>
+</form>
+
+<!-- Register Form (Initially hidden) -->
+<form id="register-form" style="display: none;">
+  <label for="register-username">Username:</label>
+  <input type="text" id="register-username" required>
+
+  <label for="register-password">Password:</label>
+  <input type="password" id="register-password" required>
+
+  <button type="button" onclick="registerUser()">Register</button>
+
+  <!-- Link to switch back to Login Form -->
+  <p id="login-link">
+    Already have an account? <a href="javascript:void(0);" onclick="toggleForm('login')">Login here</a>
+  </p>
+  <p id="register-error" style="color: red; display: none;">Username already taken.</p>
+</form>
+
+
+
+  <footer class="footer">
+    <p>&copy; 2024 Safari</p>
+  </footer>
+
+  <script src="auth.js"></script>
+</body>
+</html>
