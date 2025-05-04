@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en" class="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Safari Telecom - My Account</title>
+  <meta name="description" content="Manage your Safari Telecom account and services">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+    
+    body {
+      font-family: 'Poppins', sans-serif;
+      transition: all 0.3s ease;
+    }
+    
+    .dark {
+      background-color: #1a202c;
+      color: #f7fafc;
+    }
+    
+    .progress-bar {
+      transition: width 1s ease-in-out;
+    }
+    
+    .service-card:hover {
+      transform: translateY(-5px);
+    }
+  </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+  <!-- Header -->
+  <header class="sticky top-0 z-50 bg-white shadow-md dark:bg-gray-800 transition-colors duration-300">
+    <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+      <div class="flex items-center space-x-2">
+        <i class="fas fa-signal text-blue-600 dark:text-blue-400 text-2xl"></i>
+        <h1 class="text-2xl font-bold text-blue-600 dark:text-blue-400">Safari</h1>
+      </div>
+
+      <button
+      onclick="goBack()"
+      class="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition-all"
+    >
+      ← Back
+    </button>
+
+      <nav class="hidden md:flex space-x-8">
+        <a href="index.html" class="font-medium hover:text-blue-600 dark:hover:text-blue-400 transition-colors relative after:absolute after:bottom-[-5px] after:left-0 after:w-0 after:h-[2px] after:bg-blue-600 dark:after:bg-blue-400 hover:after:w-full after:transition-all">Home</a>
+        <a href="mobile-plans.html" class="font-medium hover:text-blue-600 dark:hover:text-blue-400 transition-colors relative after:absolute after:bottom-[-5px] after:left-0 after:w-0 after:h-[2px] after:bg-blue-600 dark:after:bg-blue-400 hover:after:w-full after:transition-all">Services</a>
+        <a href="#account" class="font-medium text-blue-600 dark:text-blue-400 transition-colors relative after:absolute after:bottom-[-5px] after:left-0 after:w-full after:h-[2px] after:bg-blue-600 dark:after:bg-blue-400 after:transition-all">My Account</a>
+        <a href="index.html#support" class="font-medium hover:text-blue-600 dark:hover:text-blue-400 transition-colors relative after:absolute after:bottom-[-5px] after:left-0 after:w-0 after:h-[2px] after:bg-blue-600 dark:after:bg-blue-400 hover:after:w-full after:transition-all">Support</a>
+      </nav>
+      
+      <div class="flex items-center space-x-4">
+        <div class="hidden md:flex items-center space-x-2">
+          <i class="fas fa-user-circle text-blue-600 dark:text-blue-400"></i>
+          <span class="font-medium">John Doe</span>
+        </div>
+        <button id="themeToggle" class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">
+          <i class="fas fa-moon dark:hidden"></i>
+          <i class="fas fa-sun hidden dark:block text-yellow-300"></i>
+        </button>
+        <button id="logoutButton" class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">
+          <i class="fas fa-sign-out-alt text-red-500"></i>
+        </button>
+        <button class="md:hidden" id="mobileMenuButton">
+          <i class="fas fa-bars text-xl"></i>
+        </button>
+      </div>
+    </div>
+    
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="hidden md:hidden bg-white dark:bg-gray-800 shadow-lg py-4 px-4">
+      <div class="flex flex-col space-y-4">
+        <a href="index.html" class="font-medium hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Home</a>
+        <a href="mobile-plans.html" class="font-medium hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Services</a>
+        <a href="#account" class="font-medium text-blue-600 dark:text-blue-400 transition-colors">My Account</a>
+        <a href="index.html#support" class="font-medium hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Support</a>
+        <div class="pt-4 border-t border-gray-200 dark:border-gray-700">
+          <div class="flex items-center space-x-2">
+            <i class="fas fa-user-circle text-blue-600 dark:text-blue-400"></i>
+            <span>John Doe</span>
+          </div>
+          <button id="mobileLogoutButton" class="mt-2 text-red-500 hover:text-red-600 transition-colors">
+            <i class="fas fa-sign-out-alt mr-2"></i> Logout
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Dashboard Content -->
+  <main class="container mx-auto px-4 py-8">
+    <!-- Welcome Banner -->
+    <section class="bg-gradient-to-r from-blue-600 to-blue-500 text-white rounded-xl p-6 mb-8 shadow-lg">
+      <div class="flex flex-col md:flex-row justify-between items-center">
+        <div>
+          <h1 class="text-2xl md:text-3xl font-bold mb-2">Welcome back, John!</h1>
+          <p class="opacity-90">Here's what's happening with your account today</p>
+        </div>
+        <div class="mt-4 md:mt-0">
+          <span class="bg-white/20 px-4 py-2 rounded-full text-sm">Member since: June 2023</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Account Overview -->
+    <section class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+      <!-- Balance Card -->
+      <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md p-6 border-l-4 border-blue-500 transition-all hover:shadow-lg">
+        <div class="flex justify-between items-start">
+          <div>
+            <h3 class="text-gray-500 dark:text-gray-400 text-sm font-medium">Account Balance</h3>
+            <p class="text-2xl font-bold mt-1 dark:text-white">$45.50</p>
+          </div>
+          <i class="fas fa-wallet text-blue-500 text-2xl"></i>
+        </div>
+        <button class="mt-4 w-full bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-lg text-sm font-medium transition-colors">
+          Add Funds
+        </button>
+      </div>
+
+      <!-- Current Plan -->
+      <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md p-6 border-l-4 border-emerald-500 transition-all hover:shadow-lg">
+        <div class="flex justify-between items-start">
+          <div>
+            <h3 class="text-gray-500 dark:text-gray-400 text-sm font-medium">Current Plan</h3>
+            <p class="text-2xl font-bold mt-1 dark:text-white">Premium Unlimited</p>
+            <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">Renews on: 15 Aug 2024</p>
+          </div>
+          <i class="fas fa-sim-card text-emerald-500 text-2xl"></i>
+        </div>
+        <button class="mt-4 w-full bg-emerald-500 hover:bg-emerald-600 text-white py-2 px-4 rounded-lg text-sm font-medium transition-colors">
+          Change Plan
+        </button>
+      </div>
+
+      <!-- Data Usage -->
+      <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md p-6 border-l-4 border-purple-500 transition-all hover:shadow-lg">
+        <div class="flex justify-between items-start">
+          <div>
+            <h3 class="text-gray-500 dark:text-gray-400 text-sm font-medium">Data Usage</h3>
+            <p class="text-2xl font-bold mt-1 dark:text-white">12.5/50 GB</p>
+            <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">25% used</p>
+          </div>
+          <i class="fas fa-database text-purple-500 text-2xl"></i>
+        </div>
+        <div class="mt-4 w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+          <div class="bg-purple-500 h-2 rounded-full" style="width: 25%"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Active Services -->
+    <section class="mb-8">
+      <div class="flex justify-between items-center mb-4">
+        <h2 class="text-xl font-bold dark:text-white">Your Active Services</h2>
+        <a href="mobile-plans.html" class="text-blue-600 dark:text-blue-400 text-sm font-medium hover:underline">
+          View all services <i class="fas fa-chevron-right ml-1"></i>
+        </a>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <!-- Mobile Service -->
+        <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md p-6 transition-all service-card">
+          <div class="flex items-center mb-4">
+            <div class="bg-blue-100 dark:bg-blue-900/30 p-3 rounded-full mr-4">
+              <i class="fas fa-mobile-alt text-blue-600 dark:text-blue-400"></i>
+            </div>
+            <div>
+              <h3 class="font-bold dark:text-white">Mobile Plan</h3>
+              <p class="text-sm text-gray-500 dark:text-gray-400">+1 (555) 123-4567</p>
+            </div>
+          </div>
+          <div class="space-y-3">
+            <div>
+              <div class="flex justify-between text-sm mb-1">
+                <span class="text-gray-500 dark:text-gray-400">Data</span>
+                <span class="font-medium">12.5/50 GB</span>
+              </div>
+              <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+                <div class="bg-blue-500 h-2 rounded-full" style="width: 25%"></div>
+              </div>
+            </div>
+            <div>
+              <div class="flex justify-between text-sm mb-1">
+                <span class="text-gray-500 dark:text-gray-400">Minutes</span>
+                <span class="font-medium">Unlimited</span>
+              </div>
+            </div>
+            <div>
+              <div class="flex justify-between text-sm mb-1">
+                <span class="text-gray-500 dark:text-gray-400">SMS</span>
+                <span class="font-medium">Unlimited</span>
+              </div>
+            </div>
+          </div>
+          <button class="mt-4 w-full border border-blue-600 text-blue-600 dark:text-blue-400 dark:border-blue-400 hover:bg-blue-50 dark:hover:bg-blue-900/20 py-2 px-4 rounded-lg text-sm font-medium transition-colors">
+            Manage Service
+          </button>
+        </div>
+
+        <!-- Internet Service -->
+        <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md p-6 transition-all service-card">
+          <div class="flex items-center mb-4">
+            <div class="bg-purple-100 dark:bg-purple-900/30 p-3 rounded-full mr-4">
+              <i class="fas fa-wifi text-purple-600 dark:text-purple-400"></i>
+            </div>
+            <div>
+              <h3 class="font-bold dark:text-white">Home Internet</h3>
+              <p class="text-sm text-gray-500 dark:text-gray-400">100 Mbps</p>
+            </div>
+          </div>
+          <div class="space-y-3">
+            <div>
+              <div class="flex justify-between text-sm mb-1">
+                <span class="text-gray-500 dark:text-gray-400">Usage</span>
+                <span class="font-medium">156/500 GB</span>
+              </div>
+              <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+                <div class="bg-purple-500 h-2 rounded-full" style="width: 31%"></div>
+              </div>
+            </div>
+            <div>
+              <div class="flex justify-between text-sm mb-1">
+                <span class="text-gray-500 dark:text-gray-400">Speed</span>
+                <span class="font-medium">100 Mbps</span>
+              </div>
+            </div>
+            <div>
+              <div class="flex justify-between text-sm mb-1">
+                <span class="text-gray-500 dark:text-gray-400">IP Address</span>
+                <span class="font-medium">192.168.1.1</span>
+              </div>
+            </div>
+          </div>
+          <button class="mt-4 w-full border border-purple-600 text-purple-600 dark:text-purple-400 dark:border-purple-400 hover:bg-purple-50 dark:hover:bg-purple-900/20 py-2 px-4 rounded-lg text-sm font-medium transition-colors">
+            Manage Service
+          </button>
+        </div>
+
+        <!-- Digital TV -->
+        <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md p-6 transition-all service-card">
+          <div class="flex items-center mb-4">
+            <div class="bg-red-100 dark:bg-red-900/30 p-3 rounded-full mr-4">
+              <i class="fas fa-tv text-red-600 dark:text-red-400"></i>
+            </div>
+            <div>
+              <h3 class="font-bold dark:text-white">Digital TV</h3>
+              <p class="text-sm text-gray-500 dark:text-gray-400">Premium Package</p>
+            </div>
+          </div>
+          <div class="space-y-3">
+            <div>
+              <div class="flex justify-between text-sm mb-1">
+                <span class="text-gray-500 dark:text-gray-400">Channels</span>
+                <span class="font-medium">150+</span>
+              </div>
+            </div>
+            <div>
+              <div class="flex justify-between text-sm mb-1">
+                <span class="text-gray-500 dark:text-gray-400">HD Channels</span>
+                <span class="font-medium">45</span>
+              </div>
+            </div>
+            <div>
+              <div class="flex justify-between text-sm mb-1">
+                <span class="text-gray-500 dark:text-gray-400">DVR Storage</span>
+                <span class="font-medium">50/100 hours</span>
+              </div>
+              <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+                <div class="bg-red-500 h-2 rounded-full" style="width: 50%"></div>
+              </div>
+            </div>
+          </div>
+          <button class="mt-4 w-full border border-red-600 text-red-600 dark:text-red-400 dark:border-red-400 hover:bg-red-50 dark:hover:bg-red-900/20 py-2 px-4 rounded-lg text-sm font-medium transition-colors">
+            Manage Service
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Recent Activity -->
+    <section class="mb-8">
+      <h2 class="text-xl font-bold mb-4 dark:text-white">Recent Activity</h2>
+      <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md overflow-hidden">
+        <div class="overflow-x-auto">
+          <table class="w-full">
+            <thead class="bg-gray-50 dark:bg-gray-700">
+              <tr>
+                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">Date</th>
+                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">Description</th>
+                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">Amount</th>
+                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">Status</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-gray-200 dark:divide-gray-700">
+              <tr>
+                <td class="px-6 py-4 whitespace-nowrap text-sm dark:text-gray-300">Jul 15, 2024</td>
+                <td class="px-6 py-4 whitespace-nowrap text-sm dark:text-gray-300">Monthly Subscription</td>
+                <td class="px-6 py-4 whitespace-nowrap text-sm dark:text-gray-300">$29.99</td>
+                <td class="px-6 py-4 whitespace-nowrap">
+                  <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-400">Paid</span>
+                </td>
+              </tr>
+              <tr>
+                <td class="px-6 py-4 whitespace-nowrap text-sm dark:text-gray-300">Jul 10, 2024</td>
+                <td class="px-6 py-4 whitespace-nowrap text-sm dark:text-gray-300">Top-up Payment</td>
+                <td class="px-6 py-4 whitespace-nowrap text-sm dark:text-gray-300">$20.00</td>
+                <td class="px-6 py-4 whitespace-nowrap">
+                  <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-400">Paid</span>
+                </td>
+              </tr>
+              <tr>
+                <td class="px-6 py-4 whitespace-nowrap text-sm dark:text-gray-300">Jun 15, 2024</td>
+                <td class="px-6 py-4 whitespace-nowrap text-sm dark:text-gray-300">Monthly Subscription</td>
+                <td class="px-6 py-4 whitespace-nowrap text-sm dark:text-gray-300">$29.99</td>
+                <td class="px-6 py-4 whitespace-nowrap">
+                  <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-400">Paid</span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="px-6 py-4 bg-gray-50 dark:bg-gray-700 text-right">
+          <a href="#" class="text-blue-600 dark:text-blue-400 text-sm font-medium hover:underline">
+            View all activity <i class="fas fa-chevron-right ml-1"></i>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Quick Actions -->
+    <section>
+      <h2 class="text-xl font-bold mb-4 dark:text-white">Quick Actions</h2>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <a href="#" class="bg-white dark:bg-gray-800 rounded-lg shadow p-4 text-center hover:shadow-md transition-shadow">
+          <div class="bg-blue-100 dark:bg-blue-900/30 w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-3">
+            <i class="fas fa-money-bill-wave text-blue-600 dark:text-blue-400"></i>
+          </div>
+          <span class="text-sm font-medium dark:text-white">Make Payment</span>
+        </a>
+        <a href="#" class="bg-white dark:bg-gray-800 rounded-lg shadow p-4 text-center hover:shadow-md transition-shadow">
+          <div class="bg-purple-100 dark:bg-purple-900/30 w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-3">
+            <i class="fas fa-sim-card text-purple-600 dark:text-purple-400"></i>
+          </div>
+          <span class="text-sm font-medium dark:text-white">Change Plan</span>
+        </a>
+        <a href="#" class="bg-white dark:bg-gray-800 rounded-lg shadow p-4 text-center hover:shadow-md transition-shadow">
+          <div class="bg-emerald-100 dark:bg-emerald-900/30 w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-3">
+            <i class="fas fa-user-cog text-emerald-600 dark:text-emerald-400"></i>
+          </div>
+          <span class="text-sm font-medium dark:text-white">Profile Settings</span>
+        </a>
+        <a href="#" class="bg-white dark:bg-gray-800 rounded-lg shadow p-4 text-center hover:shadow-md transition-shadow">
+          <div class="bg-red-100 dark:bg-red-900/30 w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-3">
+            <i class="fas fa-headset text-red-600 dark:text-red-400"></i>
+          </div>
+          <span class="text-sm font-medium dark:text-white">Contact Support</span>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-gray-800 text-white py-8">
+    <div class="container mx-auto px-4">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div>
+          <h3 class="text-xl font-bold mb-4 flex items-center">
+            <i class="fas fa-signal mr-2 text-blue-400"></i> Safari
+          </h3>
+          <p class="text-gray-400">Connecting you to what matters most.</p>
+        </div>
+        
+        <div>
+          <h4 class="font-bold mb-4">Services</h4>
+          <ul class="space-y-2">
+            <li><a href="mobile-plans.html" class="text-gray-400 hover:text-white transition-colors">Mobile Plans</a></li>
+            <li><a href="mobile-plans.html#internet-packages" class="text-gray-400 hover:text-white transition-colors">Internet Packages</a></li>
+            <li><a href="mobile-plans.html#digital-services" class="text-gray-400 hover:text-white transition-colors">Digital Services</a></li>
+          </ul>
+        </div>
+        
+        <div>
+          <h4 class="font-bold mb-4">Company</h4>
+          <ul class="space-y-2">
+            <li><a href="#" class="text-gray-400 hover:text-white transition-colors">About Us</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Careers</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white transition-colors">News</a></li>
+          </ul>
+        </div>
+        
+        <div>
+          <h4 class="font-bold mb-4">Legal</h4>
+          <ul class="space-y-2">
+            <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Terms</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Privacy</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Cookies</a></li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="border-t border-gray-700 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
+        <p class="text-gray-400 mb-4 md:mb-0">© 2024 Safari Telecom. All rights reserved.</p>
+        <div class="flex space-x-4">
+          <a href="#" class="text-gray-400 hover:text-white transition-colors"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="text-gray-400 hover:text-white transition-colors"><i class="fab fa-twitter"></i></a>
+          <a href="#" class="text-gray-400 hover:text-white transition-colors"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="text-gray-400 hover:text-white transition-colors"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Theme Toggle
+    const themeToggle = document.getElementById('themeToggle');
+    themeToggle.addEventListener('click', () => {
+      document.documentElement.classList.toggle('dark');
+      localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+    });
+
+    // Check for saved theme preference
+    if (localStorage.getItem('theme') === 'dark' || 
+        (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      document.documentElement.classList.add('dark');
+    }
+
+    // Mobile Menu Toggle
+    const mobileMenuButton = document.getElementById('mobileMenuButton');
+    const mobileMenu = document.getElementById('mobileMenu');
+    mobileMenuButton.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+
+    // Logout Functionality
+    const logoutButton = document.getElementById('logoutButton');
+    const mobileLogoutButton = document.getElementById('mobileLogoutButton');
+    
+    function logout() {
+      // In a real app, you would call your logout API here
+      alert('You have been logged out. Redirecting to home page...');
+      window.location.href = 'index.html';
+    }
+    
+    logoutButton.addEventListener('click', logout);
+    mobileLogoutButton.addEventListener('click', logout);
+
+    // Simulate loading data - in a real app you would fetch from API
+    document.addEventListener('DOMContentLoaded', () => {
+      // You would typically fetch user data here
+      console.log('Account dashboard loaded');
+    });
+
+    function goBack() {
+    window.history.back();
+  }
+  </script>
+</body>
+</html>

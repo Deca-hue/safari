@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en" class="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Safari Telecom - Internet Packages</title>
+  <meta name="description" content="High-speed internet packages for home and business">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+    
+    body {
+      font-family: 'Poppins', sans-serif;
+      transition: all 0.3s ease;
+    }
+    
+    .dark {
+      background-color: #1a202c;
+      color: #f7fafc;
+    }
+    
+    .plan-card {
+      transition: all 0.3s ease;
+    }
+    
+    .plan-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+    }
+    
+    .speed-meter {
+      transition: width 1s ease-in-out;
+    }
+  </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+  <!-- Header -->
+  <header class="sticky top-0 z-50 bg-white shadow-md dark:bg-gray-800 transition-colors duration-300">
+    <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+      <div class="flex items-center space-x-2">
+        <i class="fas fa-signal text-blue-600 dark:text-blue-400 text-2xl"></i>
+        <h1 class="text-2xl font-bold text-blue-600 dark:text-blue-400">Safari</h1>
+      </div>
+
+      <button
+      onclick="goBack()"
+      class="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition-all"
+    >
+      ← Back
+    </button>
+
+      <nav class="hidden md:flex space-x-8">
+        <a href="index.html" class="font-medium hover:text-blue-600 dark:hover:text-blue-400 transition-colors relative after:absolute after:bottom-[-5px] after:left-0 after:w-0 after:h-[2px] after:bg-blue-600 dark:after:bg-blue-400 hover:after:w-full after:transition-all">Home</a>
+        <a href="#services" class="font-medium text-blue-600 dark:text-blue-400 transition-colors relative after:absolute after:bottom-[-5px] after:left-0 after:w-full after:h-[2px] after:bg-blue-600 dark:after:bg-blue-400 after:transition-all">Services</a>
+        <a href="account.html" class="font-medium hover:text-blue-600 dark:hover:text-blue-400 transition-colors relative after:absolute after:bottom-[-5px] after:left-0 after:w-0 after:h-[2px] after:bg-blue-600 dark:after:bg-blue-400 hover:after:w-full after:transition-all">My Account</a>
+        <a href="index.html#support" class="font-medium hover:text-blue-600 dark:hover:text-blue-400 transition-colors relative after:absolute after:bottom-[-5px] after:left-0 after:w-0 after:h-[2px] after:bg-blue-600 dark:after:bg-blue-400 hover:after:w-full after:transition-all">Support</a>
+      </nav>
+      
+      <div class="flex items-center space-x-4">
+        <button id="themeToggle" class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">
+          <i class="fas fa-moon dark:hidden"></i>
+          <i class="fas fa-sun hidden dark:block text-yellow-300"></i>
+        </button>
+        <button class="md:hidden" id="mobileMenuButton">
+          <i class="fas fa-bars text-xl"></i>
+        </button>
+      </div>
+    </div>
+    
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="hidden md:hidden bg-white dark:bg-gray-800 shadow-lg py-4 px-4">
+      <div class="flex flex-col space-y-4">
+        <a href="index.html" class="font-medium hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Home</a>
+        <a href="#services" class="font-medium text-blue-600 dark:text-blue-400 transition-colors">Services</a>
+        <a href="account.html" class="font-medium hover:text-blue-600 dark:hover:text-blue-400 transition-colors">My Account</a>
+        <a href="index.html#support" class="font-medium hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Support</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="bg-gradient-to-r from-blue-600 to-blue-500 text-white py-20">
+    <div class="container mx-auto px-4 text-center">
+      <h1 class="text-4xl md:text-5xl font-bold mb-6">Lightning Fast Internet</h1>
+      <p class="text-xl md:text-2xl mb-8 max-w-2xl mx-auto">Experience seamless browsing, streaming, and gaming with our high-speed internet packages</p>
+      <button class="bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-3 px-8 rounded-full shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-1">
+        Check Availability <i class="fas fa-arrow-right ml-2"></i>
+      </button>
+    </div>
+  </section>
+
+  <!-- Internet Packages Section -->
+  <section id="services" class="py-16 bg-white dark:bg-gray-800 transition-colors duration-300">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl font-bold text-center mb-12 dark:text-white">Internet Packages</h2>
+      
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- Basic Plan -->
+        <div class="plan-card bg-gray-50 dark:bg-gray-700 p-8 rounded-xl shadow-md border-t-4 border-blue-500">
+          <div class="text-center mb-6">
+            <h3 class="text-xl font-bold mb-2 dark:text-white">Basic</h3>
+            <p class="text-gray-600 dark:text-gray-400">Perfect for light browsing and email</p>
+          </div>
+          <div class="flex justify-center mb-6">
+            <div class="text-4xl font-bold text-blue-600 dark:text-blue-400">$29.99<span class="text-lg font-normal">/mo</span></div>
+          </div>
+          <div class="mb-6">
+            <div class="flex justify-between items-center mb-2">
+              <span class="text-gray-600 dark:text-gray-400">Speed</span>
+              <span class="font-medium dark:text-white">50 Mbps</span>
+            </div>
+            <div class="w-full bg-gray-200 dark:bg-gray-600 rounded-full h-2">
+              <div class="speed-meter bg-blue-500 h-2 rounded-full" style="width: 25%"></div>
+            </div>
+          </div>
+          <ul class="space-y-3 mb-8">
+            <li class="flex items-center">
+              <i class="fas fa-check text-green-500 mr-2"></i>
+              <span class="dark:text-gray-300">Unlimited data</span>
+            </li>
+            <li class="flex items-center">
+              <i class="fas fa-check text-green-500 mr-2"></i>
+              <span class="dark:text-gray-300">Up to 5 devices</span>
+            </li>
+            <li class="flex items-center">
+              <i class="fas fa-check text-green-500 mr-2"></i>
+              <span class="dark:text-gray-300">Free modem rental</span>
+            </li>
+          </ul>
+          <button class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-4 rounded-lg transition-colors">
+            Select Plan
+          </button>
+        </div>
+        
+        <!-- Standard Plan (Featured) -->
+        <div class="plan-card bg-white dark:bg-gray-700 p-8 rounded-xl shadow-lg border-t-4 border-purple-500 transform scale-105">
+          <div class="text-center mb-6">
+            <div class="bg-purple-500 text-white text-xs font-bold px-3 py-1 rounded-full inline-block mb-3">MOST POPULAR</div>
+            <h3 class="text-xl font-bold mb-2 dark:text-white">Standard</h3>
+            <p class="text-gray-600 dark:text-gray-400">Great for streaming and gaming</p>
+          </div>
+          <div class="flex justify-center mb-6">
+            <div class="text-4xl font-bold text-purple-600 dark:text-purple-400">$49.99<span class="text-lg font-normal">/mo</span></div>
+          </div>
+          <div class="mb-6">
+            <div class="flex justify-between items-center mb-2">
+              <span class="text-gray-600 dark:text-gray-400">Speed</span>
+              <span class="font-medium dark:text-white">200 Mbps</span>
+            </div>
+            <div class="w-full bg-gray-200 dark:bg-gray-600 rounded-full h-2">
+              <div class="speed-meter bg-purple-500 h-2 rounded-full" style="width: 50%"></div>
+            </div>
+          </div>
+          <ul class="space-y-3 mb-8">
+            <li class="flex items-center">
+              <i class="fas fa-check text-green-500 mr-2"></i>
+              <span class="dark:text-gray-300">Unlimited data</span>
+            </li>
+            <li class="flex items-center">
+              <i class="fas fa-check text-green-500 mr-2"></i>
+              <span class="dark:text-gray-300">Up to 10 devices</span>
+            </li>
+            <li class="flex items-center">
+              <i class="fas fa-check text-green-500 mr-2"></i>
+              <span class="dark:text-gray-300">Free modem rental</span>
+            </li>
+            <li class="flex items-center">
+              <i class="fas fa-check text-green-500 mr-2"></i>
+              <span class="dark:text-gray-300">Priority support</span>
+            </li>
+          </ul>
+          <button class="w-full bg-purple-600 hover:bg-purple-700 text-white font-bold py-3 px-4 rounded-lg transition-colors">
+            Select Plan
+          </button>
+        </div>
+        
+        <!-- Premium Plan -->
+        <div class="plan-card bg-gray-50 dark:bg-gray-700 p-8 rounded-xl shadow-md border-t-4 border-emerald-500">
+          <div class="text-center mb-6">
+            <h3 class="text-xl font-bold mb-2 dark:text-white">Premium</h3>
+            <p class="text-gray-600 dark:text-gray-400">For power users and large households</p>
+          </div>
+          <div class="flex justify-center mb-6">
+            <div class="text-4xl font-bold text-emerald-600 dark:text-emerald-400">$79.99<span class="text-lg font-normal">/mo</span></div>
+          </div>
+          <div class="mb-6">
+            <div class="flex justify-between items-center mb-2">
+              <span class="text-gray-600 dark:text-gray-400">Speed</span>
+              <span class="font-medium dark:text-white">500 Mbps</span>
+            </div>
+            <div class="w-full bg-gray-200 dark:bg-gray-600 rounded-full h-2">
+              <div class="speed-meter bg-emerald-500 h-2 rounded-full" style="width: 100%"></div>
+            </div>
+          </div>
+          <ul class="space-y-3 mb-8">
+            <li class="flex items-center">
+              <i class="fas fa-check text-green-500 mr-2"></i>
+              <span class="dark:text-gray-300">Unlimited data</span>
+            </li>
+            <li class="flex items-center">
+              <i class="fas fa-check text-green-500 mr-2"></i>
+              <span class="dark:text-gray-300">Unlimited devices</span>
+            </li>
+            <li class="flex items-center">
+              <i class="fas fa-check text-green-500 mr-2"></i>
+              <span class="dark:text-gray-300">Free modem rental</span>
+            </li>
+            <li class="flex items-center">
+              <i class="fas fa-check text-green-500 mr-2"></i>
+              <span class="dark:text-gray-300">Priority support</span>
+            </li>
+            <li class="flex items-center">
+              <i class="fas fa-check text-green-500 mr-2"></i>
+              <span class="dark:text-gray-300">Free installation</span>
+            </li>
+          </ul>
+          <button class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 px-4 rounded-lg transition-colors">
+            Select Plan
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="py-16 bg-gray-100 dark:bg-gray-900 transition-colors duration-300">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl font-bold text-center mb-12 dark:text-white">Why Choose Safari Internet?</h2>
+      
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="text-center">
+          <div class="bg-blue-100 dark:bg-blue-900/30 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+            <i class="fas fa-bolt text-blue-600 dark:text-blue-400 text-2xl"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-2 dark:text-white">Blazing Fast Speeds</h3>
+          <p class="text-gray-600 dark:text-gray-400">Our fiber-optic network delivers consistent speeds for uninterrupted streaming and gaming</p>
+        </div>
+        
+        <div class="text-center">
+          <div class="bg-purple-100 dark:bg-purple-900/30 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+            <i class="fas fa-shield-alt text-purple-600 dark:text-purple-400 text-2xl"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-2 dark:text-white">Secure Connection</h3>
+          <p class="text-gray-600 dark:text-gray-400">Advanced security features protect your devices and personal information</p>
+        </div>
+        
+        <div class="text-center">
+          <div class="bg-emerald-100 dark:bg-emerald-900/30 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+            <i class="fas fa-headset text-emerald-600 dark:text-emerald-400 text-2xl"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-2 dark:text-white">24/7 Support</h3>
+          <p class="text-gray-600 dark:text-gray-400">Our technical team is always available to assist you with any issues</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-800 text-white py-12">
+    <div class="container mx-auto px-4">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div>
+          <h3 class="text-xl font-bold mb-4 flex items-center">
+            <i class="fas fa-signal mr-2 text-blue-400"></i> Safari
+          </h3>
+          <p class="text-gray-400">Connecting you to what matters most.</p>
+        </div>
+        
+        <div>
+          <h4 class="font-bold mb-4">Services</h4>
+          <ul class="space-y-2">
+            <li><a href="mobile-plans.html" class="text-gray-400 hover:text-white transition-colors">Mobile Plans</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Internet Packages</a></li>
+            <li><a href="digital-services.html" class="text-gray-400 hover:text-white transition-colors">Digital Services</a></li>
+          </ul>
+        </div>
+        
+        <div>
+          <h4 class="font-bold mb-4">Company</h4>
+          <ul class="space-y-2">
+            <li><a href="#" class="text-gray-400 hover:text-white transition-colors">About Us</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Careers</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white transition-colors">News</a></li>
+          </ul>
+        </div>
+        
+        <div>
+          <h4 class="font-bold mb-4">Legal</h4>
+          <ul class="space-y-2">
+            <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Terms</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Privacy</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Cookies</a></li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="border-t border-gray-700 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
+        <p class="text-gray-400 mb-4 md:mb-0">© 2024 Safari Telecom. All rights reserved.</p>
+        <div class="flex space-x-4">
+          <a href="#" class="text-gray-400 hover:text-white transition-colors"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="text-gray-400 hover:text-white transition-colors"><i class="fab fa-twitter"></i></a>
+          <a href="#" class="text-gray-400 hover:text-white transition-colors"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="text-gray-400 hover:text-white transition-colors"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Theme Toggle
+    const themeToggle = document.getElementById('themeToggle');
+    themeToggle.addEventListener('click', () => {
+      document.documentElement.classList.toggle('dark');
+      localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+    });
+
+    // Check for saved theme preference
+    if (localStorage.getItem('theme') === 'dark' || 
+        (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      document.documentElement.classList.add('dark');
+    }
+
+    // Mobile Menu Toggle
+    const mobileMenuButton = document.getElementById('mobileMenuButton');
+    const mobileMenu = document.getElementById('mobileMenu');
+    mobileMenuButton.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+
+    function goBack() {
+    window.history.back();
+  }
+  </script>
+</body>
+</html>
